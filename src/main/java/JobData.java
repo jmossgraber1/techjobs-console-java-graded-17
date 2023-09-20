@@ -95,8 +95,28 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        return null;
-    }
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+            if (row.containsValue(value)) {
+                jobs.add(row);
+
+
+                    }
+
+            }
+
+        for (HashMap<String, String> column : allJobs) {
+            if (column.containsValue(value)) {
+                jobs.add(column);
+
+
+            }
+
+        }
+        return jobs;
+        }
 
     /**
      * Read in data from a CSV file and store it in a list
