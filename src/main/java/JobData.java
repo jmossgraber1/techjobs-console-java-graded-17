@@ -75,7 +75,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -95,26 +95,26 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
+        //NOTES ON CASE INSENSITIVITY:
+        // value is what i need to act on
+        // can i make use the toLowerCase() on allJobs? Or no cause it's not a string?
+        //equalsIgnoreCase?
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            if (row.containsValue(value)) {
-                jobs.add(row);
-
-
-                    }
+            for(String key: row.keySet()){
+                String keyValue = row.get(key);
+                if (keyValue.toLowerCase().contains(value.toLowerCase())) {
+                    jobs.add(row);
+                    break;
+                }
 
             }
-
-        for (HashMap<String, String> column : allJobs) {
-            if (column.containsValue(value)) {
-                jobs.add(column);
 
 
             }
 
-        }
         return jobs;
         }
 
